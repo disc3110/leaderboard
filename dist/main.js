@@ -616,7 +616,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**************************************************************************************************************************************/
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"body {\\n  color: red;\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://curriculum/./src/scss/style.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet%5B1%5D.rules%5B3%5D.use%5B2%5D");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"body {\\n  color: #020000;\\n}\", \"\"]);\n// Exports\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://curriculum/./src/scss/style.scss?./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js??ruleSet%5B1%5D.rules%5B3%5D.use%5B2%5D");
 
 /***/ }),
 
@@ -720,13 +720,43 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\
 
 /***/ }),
 
+/***/ "./src/scripts/components/user.js":
+/*!****************************************!*\
+  !*** ./src/scripts/components/user.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"User\": () => (/* binding */ User)\n/* harmony export */ });\nclass User {\n    constructor (name = null, score = 0){\n        this.name = name\n        this.score = score\n    }\n}\n\n\n\n//# sourceURL=webpack://curriculum/./src/scripts/components/user.js?");
+
+/***/ }),
+
+/***/ "./src/scripts/components/users-table.js":
+/*!***********************************************!*\
+  !*** ./src/scripts/components/users-table.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"UsersTable\": () => (/* binding */ UsersTable)\n/* harmony export */ });\nclass UsersTable {\n    usersTable = []\n\n    addToTable = (user) => {\n        this.usersTable = this.usersTable.concat(user);\n    }\n\n    get getTable() {\n        return this.usersTable;\n    }\n}\n\n\n\n//# sourceURL=webpack://curriculum/./src/scripts/components/users-table.js?");
+
+/***/ }),
+
+/***/ "./src/scripts/components/ux.js":
+/*!**************************************!*\
+  !*** ./src/scripts/components/ux.js ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"UX\": () => (/* binding */ UX)\n/* harmony export */ });\nclass Ux {\n\nscreentable = document.querySelector('.table')\nnameInput = document.querySelector('name-input')\nscoreInput = document.querySelector('score-input')\n\n\ncheckIfInputsAreNotEmpty = (...inputs) => {\n    for (let input of inputs){\n        if (input.value ==! ''){\n        return false}\n    }\n    return true\n}\n\nclearInputs = () => {\n    this.nameInput.value = '';\n    this.scoreInput.value = '';\n}\n\nrenderTable = (table) => {\n    this.screentable.innerHTML = ''\n    for (let row of table){\n        this.screentable.innerHTML += `<tr><td> ${row.name}: ${row.score} </td></tr>`}\n    }\n\ngetName = () => {\n    return this.nameInput.value\n}\ngetScore = () => {\n    return this.scoreInput.value\n}\n}\n\nconst UX = new Ux\n\n\n//# sourceURL=webpack://curriculum/./src/scripts/components/ux.js?");
+
+/***/ }),
+
 /***/ "./src/scripts/index.js":
 /*!******************************!*\
   !*** ./src/scripts/index.js ***!
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.esm.js\");\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scss/style.scss */ \"./src/scss/style.scss\");\n\n\n\n\n//# sourceURL=webpack://curriculum/./src/scripts/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.esm.js\");\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scss/style.scss */ \"./src/scss/style.scss\");\n/* harmony import */ var _components_ux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ux */ \"./src/scripts/components/ux.js\");\n/* harmony import */ var _components_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/user */ \"./src/scripts/components/user.js\");\n/* harmony import */ var _components_users_table__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/users-table */ \"./src/scripts/components/users-table.js\");\n\n\n\n\n\n\n\nconst sumitBtn = document.querySelector('.submit-btn')\nconst refreshBtn = document.querySelector('.refresh-btn')\n\nconst userTable = new _components_users_table__WEBPACK_IMPORTED_MODULE_5__.UsersTable\n\nsumitBtn.addEventListener('click', () =>{\n    if (_components_ux__WEBPACK_IMPORTED_MODULE_3__.UX.checkIfInputsAreNotEmpty){\n        let user = new _components_user__WEBPACK_IMPORTED_MODULE_4__.User(_components_ux__WEBPACK_IMPORTED_MODULE_3__.UX.getName, _components_ux__WEBPACK_IMPORTED_MODULE_3__.UX.getScore)\n        userTable.addToTable(user)\n    }\n    \n})\n\nrefreshBtn.addEventListener('click', () => {\n    _components_ux__WEBPACK_IMPORTED_MODULE_3__.UX.renderTable\n})\n\n\n\n//# sourceURL=webpack://curriculum/./src/scripts/index.js?");
 
 /***/ }),
 
