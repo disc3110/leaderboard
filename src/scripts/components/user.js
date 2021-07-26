@@ -1,8 +1,8 @@
 class User {
-    constructor (name = null, score = 0){
-        this.name = name
-        this.score = score
-    }
+  constructor(name = null, score = 0) {
+    this.name = name;
+    this.score = score;
+  }
 }
 
-export { User };
+export { User as default };

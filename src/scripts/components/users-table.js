@@ -2,12 +2,12 @@ class UsersTable {
     usersTable = []
 
     addToTable = (user) => {
-        this.usersTable = this.usersTable.concat(user);
+      this.usersTable = this.usersTable.concat(user);
     }
 
     get getTable() {
-        return this.usersTable;
+      return this.usersTable;
     }
 }
 
-export { UsersTable };
+export { UsersTable as default };
