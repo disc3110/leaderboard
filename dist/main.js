@@ -720,23 +720,23 @@ eval("\n\n/* istanbul ignore next  */\nfunction styleTagTransform(css, style) {\
 
 /***/ }),
 
+/***/ "./src/scripts/components/api.js":
+/*!***************************************!*\
+  !*** ./src/scripts/components/api.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ APIManager)\n/* harmony export */ });\n/* eslint-disable comma-dangle, quote-props, quotes */\nclass APIManager {\n mainUrl = 'https://us-central1-js-capstone-backend.cloudfunctions.net/api/';\n\n gameid = 'BTJlNTAM3dWwTuQzTuh0' // Game with ID: BTJlNTAM3dWwTuQzTuh0 added.\n\n gameUrl = `${this.mainUrl}games/${this.gameid}`\n\n data = { \"name\": \"disocu\" };\n\n createGame = async () => {\n   const response = await fetch(`${this.mainUrl}games/`, {\n     method: 'POST',\n     body: JSON.stringify(this.data),\n     headers: {\n       'Content-type': 'application/json; charset=UTF-8',\n     },\n   });\n   return this.getAPIsResponse(response);\n };\n\n addUser = async (user) => {\n   const response = await fetch(`${this.gameUrl}/scores/`, {\n     method: 'POST',\n     body: JSON.stringify(user),\n     headers: {\n       'Content-type': 'application/json; charset=UTF-8',\n     },\n   });\n   return this.getAPIsResponse(response);\n }\n\n getUsers = async () => {\n   const response = await fetch(`${this.gameUrl}/scores/`);\n   return this.getAPIsResponse(response);\n }\n\n  getAPIsResponse = async (response) => {\n    if (response.ok) {\n      const jsonResponse = await response.json();\n      return jsonResponse.result;\n    }\n    const message = `An error has occured: ${response.status}`;\n    throw new Error(message);\n  }\n}\n\n\n\n//# sourceURL=webpack://curriculum/./src/scripts/components/api.js?");
+
+/***/ }),
+
 /***/ "./src/scripts/components/user.js":
 /*!****************************************!*\
   !*** ./src/scripts/components/user.js ***!
   \****************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ User)\n/* harmony export */ });\nclass User {\n  constructor(name = null, score = 0) {\n    this.name = name;\n    this.score = score;\n  }\n}\n\n\n\n//# sourceURL=webpack://curriculum/./src/scripts/components/user.js?");
-
-/***/ }),
-
-/***/ "./src/scripts/components/users-table.js":
-/*!***********************************************!*\
-  !*** ./src/scripts/components/users-table.js ***!
-  \***********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ UsersTable)\n/* harmony export */ });\nclass UsersTable {\n    usersTable = []\n\n    addToTable = (user) => {\n      this.usersTable = this.usersTable.concat(user);\n    }\n\n    get getTable() {\n      return this.usersTable;\n    }\n}\n\n\n\n//# sourceURL=webpack://curriculum/./src/scripts/components/users-table.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ User)\n/* harmony export */ });\nclass User {\n  constructor(user = null, score = 0) {\n    this.user = user;\n    this.score = score;\n  }\n}\n\n\n\n//# sourceURL=webpack://curriculum/./src/scripts/components/user.js?");
 
 /***/ }),
 
@@ -746,7 +746,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \**************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ UX)\n/* harmony export */ });\n/* eslint-disable  no-restricted-syntax */\nclass Ux {\nscreentable = document.querySelector('.table')\n\nnameInput = document.querySelector('.name-input')\n\nscoreInput = document.querySelector('.score-input')\n\ncheckIfInputsAreNotEmpty = () => {\n  if (this.nameInput.value === '' || this.scoreInput.value === '') {\n    return false;\n  }\n  return true;\n}\n\nclearInputs = () => {\n  this.nameInput.value = '';\n  this.scoreInput.value = '';\n}\n\nrenderTable = (table) => {\n  this.screentable.innerHTML = '';\n  for (const row of table) {\n    this.screentable.innerHTML += `<tr><td> ${row.name}: ${row.score} </td></tr>`;\n  }\n}\n\ngetName = () => this.nameInput.value\n\ngetScore = () => this.scoreInput.value\n}\n\nconst UX = new Ux();\n\n\n//# sourceURL=webpack://curriculum/./src/scripts/components/ux.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ UX)\n/* harmony export */ });\n/* eslint-disable  no-restricted-syntax */\nclass Ux {\nscreentable = document.querySelector('.table')\n\nnameInput = document.querySelector('.name-input')\n\nscoreInput = document.querySelector('.score-input')\n\ncheckIfInputsAreNotEmpty = () => {\n  if (this.nameInput.value === '' || this.scoreInput.value === '') {\n    return false;\n  }\n  return true;\n}\n\nclearInputs = () => {\n  this.nameInput.value = '';\n  this.scoreInput.value = '';\n}\n\nrenderTable = (table) => {\n  this.screentable.innerHTML = '';\n  for (const row of table) {\n    this.screentable.innerHTML += `<tr><td> ${row.user}: ${row.score} </td></tr>`;\n  }\n}\n\ngetName = () => this.nameInput.value\n\ngetScore = () => parseInt(this.scoreInput.value, 10)\n}\n\nconst UX = new Ux();\n\n\n//# sourceURL=webpack://curriculum/./src/scripts/components/ux.js?");
 
 /***/ }),
 
@@ -756,7 +756,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.esm.js\");\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scss/style.scss */ \"./src/scss/style.scss\");\n/* harmony import */ var _components_ux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ux */ \"./src/scripts/components/ux.js\");\n/* harmony import */ var _components_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/user */ \"./src/scripts/components/user.js\");\n/* harmony import */ var _components_users_table__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/users-table */ \"./src/scripts/components/users-table.js\");\n\n\n\n\n\n\n\nconst sumitBtn = document.querySelector('.submit-btn');\nconst refreshBtn = document.querySelector('.refresh-btn');\n\nconst userTable = new _components_users_table__WEBPACK_IMPORTED_MODULE_5__.default();\n\nsumitBtn.addEventListener('click', () => {\n  if (_components_ux__WEBPACK_IMPORTED_MODULE_3__.default.checkIfInputsAreNotEmpty()) {\n    const user = new _components_user__WEBPACK_IMPORTED_MODULE_4__.default(_components_ux__WEBPACK_IMPORTED_MODULE_3__.default.getName(), _components_ux__WEBPACK_IMPORTED_MODULE_3__.default.getScore());\n    userTable.addToTable(user);\n    _components_ux__WEBPACK_IMPORTED_MODULE_3__.default.clearInputs();\n  }\n});\n\nrefreshBtn.addEventListener('click', () => {\n  _components_ux__WEBPACK_IMPORTED_MODULE_3__.default.renderTable(userTable.getTable);\n});\n\n\n//# sourceURL=webpack://curriculum/./src/scripts/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap */ \"./node_modules/bootstrap/dist/js/bootstrap.esm.js\");\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var _scss_style_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../scss/style.scss */ \"./src/scss/style.scss\");\n/* harmony import */ var _components_ux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/ux */ \"./src/scripts/components/ux.js\");\n/* harmony import */ var _components_user__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/user */ \"./src/scripts/components/user.js\");\nObject(function webpackMissingModule() { var e = new Error(\"Cannot find module './components/users-table'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n/* harmony import */ var _components_api__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/api */ \"./src/scripts/components/api.js\");\n\n\n\n\n\n\n\n\nconst sumitBtn = document.querySelector('.submit-btn');\nconst refreshBtn = document.querySelector('.refresh-btn');\n\nconst API = new _components_api__WEBPACK_IMPORTED_MODULE_6__.default();\n// API.createGame();\n\nsumitBtn.addEventListener('click', () => {\n  if (_components_ux__WEBPACK_IMPORTED_MODULE_3__.default.checkIfInputsAreNotEmpty()) {\n    const user = new _components_user__WEBPACK_IMPORTED_MODULE_4__.default(_components_ux__WEBPACK_IMPORTED_MODULE_3__.default.getName(), _components_ux__WEBPACK_IMPORTED_MODULE_3__.default.getScore());\n    API.addUser(user);\n    _components_ux__WEBPACK_IMPORTED_MODULE_3__.default.clearInputs();\n  }\n});\n\nrefreshBtn.addEventListener('click', () => {\n  API.getUsers().then((users) => {\n    _components_ux__WEBPACK_IMPORTED_MODULE_3__.default.renderTable(users);\n  });\n});\n\n//# sourceURL=webpack://curriculum/./src/scripts/index.js?");
 
 /***/ }),
 

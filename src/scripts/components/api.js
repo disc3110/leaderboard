@@ -16,12 +16,7 @@ class APIManager {
        'Content-type': 'application/json; charset=UTF-8',
      },
    });
-   if (response.ok) {
-     const jsonResponse = await response.json();
-   } else {
-     const message = `An error has occured: ${response.status}`;
-     throw new Error(message);
-   }
+   return this.getAPIsResponse(response);
  };
 
  addUser = async (user) => {
@@ -32,23 +27,22 @@ class APIManager {
        'Content-type': 'application/json; charset=UTF-8',
      },
    });
-   if (response.ok) {
-     const jsonResponse = await response.json();
-     return jsonResponse
-   }
-   const message = `An error has occured: ${response.status}`;
-   throw new Error(message);
+   return this.getAPIsResponse(response);
  }
 
  getUsers = async () => {
    const response = await fetch(`${this.gameUrl}/scores/`);
-   if (response.ok) {
-     const jsonResponse = await response.json();
-     return jsonResponse.result;
-   }
-   const message = `An error has occured: ${response.status}`;
-   throw new Error(message);
+   return this.getAPIsResponse(response);
  }
+
+  getAPIsResponse = async (response) => {
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      return jsonResponse.result;
+    }
+    const message = `An error has occured: ${response.status}`;
+    throw new Error(message);
+  }
 }
 
 export { APIManager as default };
