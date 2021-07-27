@@ -21,13 +21,13 @@ clearInputs = () => {
 renderTable = (table) => {
   this.screentable.innerHTML = '';
   for (const row of table) {
-    this.screentable.innerHTML += `<tr><td> ${row.name}: ${row.score} </td></tr>`;
+    this.screentable.innerHTML += `<tr><td> ${row.user}: ${row.score} </td></tr>`;
   }
 }
 
 getName = () => this.nameInput.value
 
-getScore = () => this.scoreInput.value
+getScore = () => parseInt(this.scoreInput.value, 10)
 }
 
 const UX = new Ux();
