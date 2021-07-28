@@ -13,8 +13,10 @@ const API = new APIManager();
 sumitBtn.addEventListener('click', () => {
   if (UX.checkIfInputsAreNotEmpty()) {
     const user = new User(UX.getName(), UX.getScore());
-    API.addUser(user);
-    UX.clearInputs();
+    API.addUser(user).then(() => {
+      UX.clearInputs();
+      UX.showAlert('Your score has been added. Click on the refresh button to see it');
+    });
   }
 });
 

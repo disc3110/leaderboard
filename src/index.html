@@ -7,18 +7,22 @@
     <title>Leaderboard</title>
 </head>
 <body>
-    <header class="fs-1 m-3">Leaderboard</header>
+    <div class="alert alert-warning d-none" role="alert">
+    </div>
+    <header class="fs-1 p-3 w-100">Leaderboard</header>
     <div class="container d-flex">
         <div class="scores-data w-50 p-2">
             <section class="scores-data-header">
                 <p class="fs-2">Recent scores</p>
                 <button class="btn btn-secondary my-1 refresh-btn">Refresh</button>
             </section>
-            <table class="table table-striped table-hover border border-dark">
-                <tr><td>Name: 100</td></tr>
-                <tr><td>Name: 100</td></tr>
-                <tr><td>Name: 100</td></tr>
-                <tr><td>Name: 100</td></tr>
+            <table class="table table-striped table-hover border border-dark scrollTable">
+                <tbody class="table-body">
+                    <tr><td>Name: 100</td></tr>
+                    <tr><td>Name: 100</td></tr>
+                    <tr><td>Name: 100</td></tr>
+                    <tr><td>Name: 100</td></tr>
+                </tbody>  
             </table>
         </div>
         <div class="add-score w-50 p-2">
