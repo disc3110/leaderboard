@@ -2,4 +2,20 @@ $body-color: rgb(2, 0, 0);
 
 body {
   color: $body-color;
+  position: relative;
+}
+
+header {
+  background-color: darkmagenta;
+}
+
+.scrollTable tbody {
+  display: block;
+  height: 200px;
+  overflow-y: auto;
+}
+
+tr,
+td {
+  display: block;
 }
